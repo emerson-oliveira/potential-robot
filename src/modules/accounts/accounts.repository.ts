@@ -9,7 +9,7 @@ export class AccountsRepository {
     const staticAccount: Account = {
       id: '1',
       name: 'Conta Estática',
-      balance: 0, 
+      balance: 0,
     };
     this.accounts.set(staticAccount.id, staticAccount);
   }

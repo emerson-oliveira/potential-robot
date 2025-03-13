@@ -7,7 +7,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Finance Management API')
-    .setDescription('API para gerenciamento de transações financeiras') 
+    .setDescription('API para gerenciamento de transações financeiras')
     .setVersion('1.0')
     .addTag('accounts')
     .addTag('transactions')
@@ -17,7 +17,8 @@ async function bootstrap() {
   SwaggerModule.setup('api/docs', app, document);
 
   await app.listen(3000);
-  console.log(`Documentação do Swagger disponível em: http://localhost:3000/api/docs`);
-
+  console.log(
+    `Documentação do Swagger disponível em: http://localhost:3000/api/docs`,
+  );
 }
 bootstrap();

@@ -9,7 +9,11 @@ export class AccountsController {
   constructor(private readonly accountsService: AccountsService) {}
 
   @ApiOperation({ summary: 'Consultar saldo da conta' })
-  @ApiResponse({ status: 200, description: 'Saldo retornado com sucesso', type: AccountBalanceDTO })
+  @ApiResponse({
+    status: 200,
+    description: 'Saldo retornado com sucesso',
+    type: AccountBalanceDTO,
+  })
   @Get(':id/balance')
   getBalance(@Param('id') id: string): AccountBalanceDTO {
     const balance = this.accountsService.getAccountBalance(id);
