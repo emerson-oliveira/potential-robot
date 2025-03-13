@@ -13,7 +13,7 @@ export class TransactionsService {
     private readonly transactionsRepository: TransactionsRepository,
   ) {}
 
-  async createTransaction(createTransactionDTO: CreateTransactionDTO): Promise<Transaction> {
+  createTransaction(createTransactionDTO: CreateTransactionDTO): Transaction {
     const { accountId, type, amount } = createTransactionDTO;
 
     const accountBalance = this.accountsService.getAccountBalance(accountId);
@@ -21,7 +21,8 @@ export class TransactionsService {
       throw new BadRequestException('Insufficient balance');
     }
 
-    const transactionAmount = type === TransactionType.INCOME ? amount : -amount;
+    const transactionAmount =
+      type === TransactionType.INCOME ? amount : -amount;
 
     this.accountsService.updateAccountBalance(accountId, transactionAmount);
 
