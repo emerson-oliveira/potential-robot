@@ -19,7 +19,7 @@ export class TransactionsController {
   @ApiResponse({ status: 400, description: 'Saldo insuficiente' })
   @Post()
   @UsePipes(new ValidationPipe({ whitelist: true, transform: true }))
-  async createTransaction(@Body() createTransactionDTO: CreateTransactionDTO) {
+  createTransaction(@Body() createTransactionDTO: CreateTransactionDTO) {
     return this.transactionsService.createTransaction(createTransactionDTO);
   }
 }

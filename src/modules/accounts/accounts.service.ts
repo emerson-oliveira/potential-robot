@@ -21,10 +21,6 @@ export class AccountsService {
   }
 
   updateAccountBalance(id: string, amount: number): void {
-    const account = this.accountsRepository.findById(id);
-    if (!account) {
-      throw new NotFoundException('Account not found');
-    }
-    account.balance += amount;
+    return this.accountsRepository.updateBalance(id, amount);
   }
 }
