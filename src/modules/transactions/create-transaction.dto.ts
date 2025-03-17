@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString, IsEnum, IsNumber } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  IsEnum,
+  IsNumber,
+  IsPositive,
+} from 'class-validator';
 import { TransactionType } from '@/constants';
 
 export class CreateTransactionDTO {
@@ -24,5 +30,6 @@ export class CreateTransactionDTO {
     example: 100,
   })
   @IsNumber()
+  @IsPositive({ message: 'O valor da transação deve ser positivo' })
   amount: number;
 }
